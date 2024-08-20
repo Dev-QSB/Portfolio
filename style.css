@@ -1,18 +1,59 @@
+/* Video-Hintergrund */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Overlay für Hintergrundfarbe */
+.overlay {
+    position: fixed; /* Ändere zu fixed, damit es auch beim Scrollen an Ort und Stelle bleibt */
+    top: 0;
+    left: 50%;
+    width: 75%;
+    height: 100vh; /* Höhe des Viewports */
+    background-color: rgb(77, 82, 92); /* Rote, halbtransparente Farbe */
+    transform: translateX(-50%); /* Horizontal zentrieren */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
 /* Grundlegendes Styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: rgba(224, 247, 250, 0.8); /* Transparenz hinzufügen, um das Video durchscheinen zu lassen */
     color: #333;
     line-height: 1.6;
+    scroll-behavior: smooth;
+    animation: backgroundAnimation 10s ease infinite; /* Hintergrundanimation */
 }
 
 header {
-    background-color: #282c34;
+    background-color: #3aadeb;
     color: white;
     padding: 1rem;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -22,33 +63,48 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #61dafb;
+    color: #b3e5fc;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    font-weight: 300;
 }
 
 main {
+    position: relative; /* Fügt relative Position hinzu */
     display: grid;
+    width: 70%;
+    left: 13%;
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 2rem;
+    padding: 10;
+    z-index: 10; /* Höher als Overlay */
 }
 
 section {
     background: white;
     padding: 2rem;
+    margin-bottom: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     opacity: 0;
@@ -56,51 +112,44 @@ section {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Animationen für Hintergrund und Inhalte */
+@keyframes backgroundAnimation {
+    0% { background-color: #e0f7fa; }
+    50% { background-color: #b3e5fc; }
+    100% { background-color: #e0f7fa; }
+}
+
 section.fade-in {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Animationen */
-@keyframes slide-in {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.project {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.project {
-    animation: slide-in 0.6s ease-out forwards;
+.project.active {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Footer Styling */
 footer {
-    background-color: #282c34;
+    position: fixed; /* Fügt Fixed Position hinzu */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Volle Breite */
+    background-color: #0288d1;
     color: white;
     text-align: center;
     padding: 1rem;
-    margin-top: auto;
+    border-radius: 3mm;
+    z-index: 1000; /* Sicherstellen, dass der Footer über anderen Inhalten liegt */
 }
 
-
-@media (max-width: 768px) {
-    main {
-        padding: 1rem;
-    }
-
-    section {
-        padding: 1rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
+footer p {
+    margin: 0;
+    font-size: 1rem;
 }

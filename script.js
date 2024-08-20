@@ -1,11 +1,11 @@
-// Funktion, die Animationen beim Scrollen auslöst
 document.addEventListener('DOMContentLoaded', function() {
-    const fadeInSections = document.querySelectorAll('.fade-in');
+    const sections = document.querySelectorAll('section');
+    const projects = document.querySelectorAll('.project');
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('fade-in');
                 observer.unobserve(entry.target);
             }
         });
@@ -13,7 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.1
     });
 
-    fadeInSections.forEach(section => {
+    sections.forEach(section => {
         observer.observe(section);
+    });
+
+    projects.forEach(project => {
+        project.addEventListener('click', () => {
+            projects.forEach(p => p.classList.remove('active'));
+            project.classList.add('active');
+        });
     });
 });

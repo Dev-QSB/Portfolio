@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="istockphoto-829060978-640_adpp_is.mp4" type="video/mp4">
+            Dein Browser unterstützt kein HTML5 Video.
+        </video>
+    </div>
+
+    <div class="overlay"></div> <!-- Neue Overlay-Div -->
+
     <header>
-        <h1>Mein Portfolio</h1>
         <nav>
             <ul>
                 <li><a href="#about">Über mich</a></li>
@@ -16,31 +24,35 @@
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
+        <h1>Willkommen zu meinem Portfolio</h1>
     </header>
 
     <main>
-        <section id="about" class="fade-in">
+        <section id="about">
             <h2>Über mich</h2>
             <p>Hier kannst du Informationen über dich selbst hinzufügen.</p>
         </section>
 
-        <section id="projects" class="fade-in">
+        <section id="projects">
             <h2>Projekte</h2>
             <div class="project">
-                <h3>Projekt 1</h3>
+                <h3>Projekt 5</h3>
                 <p>Beschreibung des Projekts.</p>
             </div>
-            <!-- Weitere Projekte hier hinzufügen -->
+            <div class="project">
+                <h3>Projekt 2</h3>
+                <p>Beschreibung des Projekts.</p>
+            </div>
         </section>
 
-        <section id="contact" class="fade-in">
+        <section id="contact">
             <h2>Kontakt</h2>
             <p>Hier kannst du deine Kontaktinformationen hinzufügen.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Mein Name. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2024 Qassim Shani Baqi. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script src="script.js"></script>
