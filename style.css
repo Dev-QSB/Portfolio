@@ -22,13 +22,13 @@
 
 /* Overlay für Hintergrundfarbe */
 .overlay {
-    position: fixed; /* Ändere zu fixed, damit es auch beim Scrollen an Ort und Stelle bleibt */
+    position: fixed;
     top: 0;
     left: 50%;
     width: 75%;
-    height: 100vh; /* Höhe des Viewports */
-    background-color: rgb(77, 82, 92); /* Rote, halbtransparente Farbe */
-    transform: translateX(-50%); /* Horizontal zentrieren */
+    height: 100vh;
+    background-color: rgb(77, 82, 92);
+    transform: translateX(-50%);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -39,11 +39,11 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgba(224, 247, 250, 0.8); /* Transparenz hinzufügen, um das Video durchscheinen zu lassen */
+    background-color: rgba(224, 247, 250, 0.8);
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
-    animation: backgroundAnimation 10s ease infinite; /* Hintergrundanimation */
+    animation: backgroundAnimation 10s ease infinite;
 }
 
 header {
@@ -90,7 +90,7 @@ h1 {
 }
 
 main {
-    position: relative; /* Fügt relative Position hinzu */
+    position: relative;
     display: grid;
     width: 70%;
     left: 13%;
@@ -98,7 +98,7 @@ main {
     gap: 2rem;
     padding: 2rem;
     padding: 10;
-    z-index: 10; /* Höher als Overlay */
+    z-index: 10;
 }
 
 section {
@@ -112,7 +112,6 @@ section {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Animationen für Hintergrund und Inhalte */
 @keyframes backgroundAnimation {
     0% { background-color: #e0f7fa; }
     50% { background-color: #b3e5fc; }
@@ -137,19 +136,80 @@ section.fade-in {
 
 /* Footer Styling */
 footer {
-    position: fixed; /* Fügt Fixed Position hinzu */
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%; /* Volle Breite */
+    width: 100%;
     background-color: #0288d1;
     color: white;
     text-align: center;
     padding: 1rem;
     border-radius: 3mm;
-    z-index: 1000; /* Sicherstellen, dass der Footer über anderen Inhalten liegt */
+    z-index: 1000;
 }
 
 footer p {
     margin: 0;
     font-size: 1rem;
+}
+
+/* Media Queries für mobile Geräte */
+@media (max-width: 768px) {
+    .overlay {
+        width: 90%;
+        border-radius: 10px;
+    }
+
+    main {
+        width: 90%;
+        left: 5%;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    main {
+        width: 100%;
+        left: 0;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 0.5rem;
+    }
 }
