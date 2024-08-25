@@ -3,8 +3,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     overflow: hidden;
 }
@@ -39,7 +39,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgba(224, 247, 250, 0.8);
+    background-color: transparent; /* Hintergrundfarbe entfernt, damit das Video sichtbar bleibt */
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
@@ -53,6 +53,7 @@ header {
     text-align: center;
     position: sticky;
     top: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -97,7 +98,6 @@ main {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 2rem;
-    padding: 10;
     z-index: 10;
 }
 
@@ -211,5 +211,18 @@ footer p {
 
     section {
         padding: 0.5rem;
+    }
+
+    #background-video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    header {
+        width: 100%;
     }
 }
